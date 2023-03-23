@@ -30,10 +30,6 @@ var body: some View {
         VStack (spacing: 24) {
             Button {
                 Task {
-                        // Setup Alloy configuration
-                        //"028d85e0-aa24-4ca1-99f2-90e3ee3f4e6b"
-                        //"28645602-9560-4c33-aec8-2f4104f6e6ac"
-                        //a3cbb53c-8fae-409c-9ee1-35bb60bd6107
                     let alloySettings = AlloySettings(
                         apiKey: "a3cbb53c-8fae-409c-9ee1-35bb60bd6107",
                         production: true,
@@ -64,20 +60,16 @@ var body: some View {
             .overlay(RoundedRectangle(cornerRadius: 8).stroke(.gray, lineWidth: 1))
 
             Button {
-                    //SOCURE SDK JOURNEY: J-4VGaFh2Cfl8wHF08vSLA
-                    //DOCV SDK JOURNEY: J-59H8fV7Ft6jI5AoMrrwi
                 Task {
                     if !resumeJourney {
                         resumeJourney.toggle()
                         let entityDataPerson = Entity.EntityData(nameFirst: "John", nameLast: "Random6")
-                        let entityPerson = Entity(entityData: entityDataPerson, entityType: "person", branchName: "persons")
-                        let entityDataPerson2 = Entity.EntityData(nameFirst: "Mary", nameLast: "Random6 Random6")
-                        let entityPerson2 = Entity(entityData: entityDataPerson2, entityType: "person", branchName: "persons")
+                        let entityPerson = Entity(entityData: entityDataPerson, entityType: "person", branchName: "vouched")
+                        let entityDataPerson2 = Entity.EntityData(nameFirst: "Mary", nameLast: "Vouched")
+                        let entityPerson2 = Entity(entityData: entityDataPerson2, entityType: "person", branchName: "vouched")
 
                         let entities = EntityData(entities: [entityPerson, entityPerson2], additionalEntities: false)
-                        let journeySettings = JourneySettings(journeyToken: "J-59H8fV7Ft6jI5AoMrrwi", entities: entities)
-                            // AlloyCodeless.shared.setKeySocureSDK(apiKey: "3083d83f-6d7d-4dd1-a06e-434d9a2d5031")
-                            // AlloyCodeless.shared.setKeySocureSDK(apiKey: "49b2a770-0540-400b-a7a7-4da404445270")
+                        let journeySettings = JourneySettings(journeyToken: "J-72ADYuJif7FOiDsYZoRE", entities: entities)
                         let journeyResult = try await AlloyCodelessLiteiOS.shared.startJourney(journeySettings: journeySettings, onFinish: { _ in
                             showResultJourney.toggle()
                         })

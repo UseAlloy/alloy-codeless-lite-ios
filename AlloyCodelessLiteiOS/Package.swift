@@ -6,6 +6,7 @@ import PackageDescription
 let package = Package(
     name: "AlloyCodelessLiteiOS",
     defaultLocalization: "en",
+    
     platforms: [
         .iOS(.v16)
     ],
