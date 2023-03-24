@@ -28,8 +28,5 @@
                 resources: [
                     .process("Resources")
                 ]),
-            .testTarget(
-                name: "alloy-codeless-lite-ios Tests",
-                dependencies: ["alloy-codeless-lite-ios"]),
         ]
     )
