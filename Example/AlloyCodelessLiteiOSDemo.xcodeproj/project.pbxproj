@@ -11,7 +11,7 @@
 		4B05591729CB5CCE00FC3E4C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B05591629CB5CCE00FC3E4C /* ContentView.swift */; };
 		4B05591929CB5CCE00FC3E4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B05591829CB5CCE00FC3E4C /* Assets.xcassets */; };
 		4B05591C29CB5CCE00FC3E4C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B05591B29CB5CCE00FC3E4C /* Preview Assets.xcassets */; };
-		4B05598929CB64B200FC3E4C /* AlloyCodelessLiteiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 4B05598829CB64B200FC3E4C /* AlloyCodelessLiteiOS */; };
+		4BE859E829CD1FE3001F6ABD /* alloy-codeless-lite-ios in Frameworks */ = {isa = PBXBuildFile; productRef = 4BE859E729CD1FE3001F6ABD /* alloy-codeless-lite-ios */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +20,7 @@
 		4B05591629CB5CCE00FC3E4C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4B05591829CB5CCE00FC3E4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B05591B29CB5CCE00FC3E4C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		4B05598629CB64A400FC3E4C /* AlloyCodelessLiteiOS */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AlloyCodelessLiteiOS; path = ..; sourceTree = "<group>"; };
+		4B055A2429CD179100FC3E4C /* alloy-codeless-lite-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "alloy-codeless-lite-ios"; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,7 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B05598929CB64B200FC3E4C /* AlloyCodelessLiteiOS in Frameworks */,
+				4BE859E829CD1FE3001F6ABD /* alloy-codeless-lite-ios in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,7 +38,7 @@
 		4B05590829CB5CCD00FC3E4C = {
 			isa = PBXGroup;
 			children = (
-				4B05598529CB64A400FC3E4C /* Packages */,
+				4B0559BE29CD12A600FC3E4C /* Packages */,
 				4B05591329CB5CCD00FC3E4C /* AlloyCodelessLiteiOSDemo */,
 				4B05591229CB5CCD00FC3E4C /* Products */,
 				4B05598729CB64B200FC3E4C /* Frameworks */,
@@ -72,19 +72,19 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		4B05598529CB64A400FC3E4C /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				4B05598629CB64A400FC3E4C /* AlloyCodelessLiteiOS */,
-			);
-			name = Packages;
-			sourceTree = "<group>";
-		};
 		4B05598729CB64B200FC3E4C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4B0559BE29CD12A600FC3E4C /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				4B055A2429CD179100FC3E4C /* alloy-codeless-lite-ios */,
+			);
+			name = Packages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,7 +104,7 @@
 			);
 			name = AlloyCodelessLiteiOSDemo;
 			packageProductDependencies = (
-				4B05598829CB64B200FC3E4C /* AlloyCodelessLiteiOS */,
+				4BE859E729CD1FE3001F6ABD /* alloy-codeless-lite-ios */,
 			);
 			productName = AlloyCodelessLiteiOSDemo;
 			productReference = 4B05591129CB5CCD00FC3E4C /* AlloyCodelessLiteiOSDemo.app */;
@@ -293,6 +293,8 @@
 				DEVELOPMENT_TEAM = RXT9WNH555;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We require a file upload to verify your identity.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We require a file upload to verify your identity.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -322,6 +324,8 @@
 				DEVELOPMENT_TEAM = RXT9WNH555;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We require a file upload to verify your identity.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We require a file upload to verify your identity.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -364,9 +368,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4B05598829CB64B200FC3E4C /* AlloyCodelessLiteiOS */ = {
+		4BE859E729CD1FE3001F6ABD /* alloy-codeless-lite-ios */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = AlloyCodelessLiteiOS;
+			productName = "alloy-codeless-lite-ios";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
