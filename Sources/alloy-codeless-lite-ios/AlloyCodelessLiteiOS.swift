@@ -5,7 +5,7 @@ import UIKit
 
 public class AlloyCodelessLiteiOS: ObservableObject {
 
-    // MARK: - Properties
+        // MARK: - Properties
     var alloySettings = AlloySettings()
     var journeyService = JourneyService()
 
