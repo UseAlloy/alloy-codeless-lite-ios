@@ -7,12 +7,19 @@ struct WebView: UIViewRepresentable {
     var onFinish: ((FinishJourneyResult) -> Void)?
 
     func makeUIView(context: Context) -> WKWebView {
-        return WKWebView()
+        let config = WKWebViewConfiguration()
+        config.allowsInlineMediaPlayback = true
+
+        let webView = WKWebView(frame: .zero, configuration: config)
+        return webView
     }
 
     func updateUIView(_ webView: WKWebView, context: Context) {
-        webView.load(URLRequest(url: URL(string: url)!))
         webView.navigationDelegate = context.coordinator
+        webView.allowsBackForwardNavigationGestures = false
+        webView.scrollView.bounces = false
+
+        webView.load(URLRequest(url: URL(string: url)!))
     }
 
     func makeCoordinator() -> Coodinator {
