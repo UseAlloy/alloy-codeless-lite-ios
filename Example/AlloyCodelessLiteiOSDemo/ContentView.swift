@@ -31,9 +31,12 @@ struct ContentView: View {
                 Button {
                     Task {
                         let alloySettings = AlloySettings(
-                            apiKey: "a3cbb53c-8fae-409c-9ee1-35bb60bd6107",
-                            production: true,
-                            realProduction: false,
+                            // *** this key is part of a working example ***
+                            // You should obtain your key from the alloy dashboard
+                            // On settings > SDK Config
+                            apiKey: "7db38092-3df1-4e56-8d01-3a92478485ba", 
+                            production: false,
+                            realProduction: true,
                             codelessFinalValidation: false
                         )
 
@@ -63,13 +66,13 @@ struct ContentView: View {
                     Task {
                         if !resumeJourney {
                             resumeJourney.toggle()
-                            let entityDataPerson = Entity.EntityData(nameFirst: "John", nameLast: "Random6")
+                            let entityDataPerson = Entity.EntityData(nameFirst: "John", nameLast: "Doe")
                             let entityPerson = Entity(entityData: entityDataPerson, entityType: "person", branchName: "vouched")
-                            let entityDataPerson2 = Entity.EntityData(nameFirst: "Mary", nameLast: "Vouched")
-                            let entityPerson2 = Entity(entityData: entityDataPerson2, entityType: "person", branchName: "vouched")
+                            let entityDataPerson2 = Entity.EntityData(nameFirst: "Julie", nameLast: "Tam")
+                            let entityPerson2 = Entity(entityData: entityDataPerson2, entityType: "person", branchName: "veriff")
 
                             let entities = EntityData(entities: [entityPerson, entityPerson2], additionalEntities: false)
-                            let journeySettings = JourneySettings(journeyToken: "J-72ADYuJif7FOiDsYZoRE", entities: entities)
+                            let journeySettings = JourneySettings(journeyToken: "J-UMEhLDP3p759425pz1uP", entities: entities)
                             let journeyResult = try await AlloyCodelessLiteiOS.shared.startJourney(journeySettings: journeySettings, onFinish: { _ in
                                 showResultJourney.toggle()
                             })
