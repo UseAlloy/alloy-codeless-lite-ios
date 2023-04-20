@@ -3,7 +3,7 @@ import SwiftUI
 
 internal struct PluginURLBuilder {
 
-    let baseUrl = "https://alloysdk-qa.alloy.co/?isNext=true&"
+    let baseUrl = "https://alloysdk.alloy.co/?isNext=true&"
     var apiKey: String
     var journeyToken: String
     var applicationToken: String
