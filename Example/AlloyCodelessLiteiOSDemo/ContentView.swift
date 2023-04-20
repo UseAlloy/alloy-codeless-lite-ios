@@ -66,12 +66,19 @@ struct ContentView: View {
                     Task {
                         if !resumeJourney {
                             resumeJourney.toggle()
+                            // We are creating 2 entities for the journey application using only first and last name.
+                            // The Entity data needed will vary depending on the services associated to your workflows.
                             let entityDataPerson = Entity.EntityData(nameFirst: "John", nameLast: "Doe")
-                            let entityPerson = Entity(entityData: entityDataPerson, entityType: "person", branchName: "vouched")
                             let entityDataPerson2 = Entity.EntityData(nameFirst: "Julie", nameLast: "Tam")
+                            // We add the entity data to an entity structure. Entity type can be person or business
+                            // The branch name needs to match the branch names on your journey.
+                            // If you only have one branch, you don't need to pass a branch name.
+                            let entityPerson = Entity(entityData: entityDataPerson, entityType: "person", branchName: "vouched")
                             let entityPerson2 = Entity(entityData: entityDataPerson2, entityType: "person", branchName: "veriff")
 
                             let entities = EntityData(entities: [entityPerson, entityPerson2], additionalEntities: false)
+                            // *** this key is part of a working example ***
+                            // You should obtain your journey token from the journey's list
                             let journeySettings = JourneySettings(journeyToken: "J-UMEhLDP3p759425pz1uP", entities: entities)
                             let journeyResult = try await AlloyCodelessLiteiOS.shared.startJourney(journeySettings: journeySettings, onFinish: { _ in
                                 showResultJourney.toggle()
