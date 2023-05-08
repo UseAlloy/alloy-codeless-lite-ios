@@ -79,7 +79,7 @@ struct ContentView: View {
                             let entities = EntityData(entities: [entityPerson, entityPerson2], additionalEntities: false)
                             // *** this key is part of a working example ***
                             // You should obtain your journey token from the journey's list
-                            let journeySettings = JourneySettings(journeyToken: "J-UMEhLDP3p759425pz1uP", entities: entities)
+                            let journeySettings = JourneySettings(journeyToken: "J-UMEhLDP3p759425pz1uP", entities: entities, production: false)
                             let journeyResult = try await AlloyCodelessLiteiOS.shared.startJourney(journeySettings: journeySettings, onFinish: { _ in
                                 showResultJourney.toggle()
                             })

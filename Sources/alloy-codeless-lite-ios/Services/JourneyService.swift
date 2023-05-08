@@ -20,7 +20,8 @@ internal struct JourneyService {
             let urlPlugin = PluginURLBuilder(
                 apiKey: AlloyCodelessLiteiOS.shared.alloySettings.apiKey ?? "",
                 journeyToken: journeySettings.journeyToken,
-                applicationToken: TokenHolder.tokens.journeyApplicationToken
+                applicationToken: TokenHolder.tokens.journeyApplicationToken,
+                production: journeySettings.production
             )
             UIUtils.presentView(viewController: WebViewController(url: urlPlugin.getPluginURL(), onFinish: onFinish), presentationStyle: .overFullScreen)
         }
@@ -50,7 +51,8 @@ internal struct JourneyService {
             let urlPlugin = PluginURLBuilder(
                 apiKey: AlloyCodelessLiteiOS.shared.alloySettings.apiKey ?? "",
                 journeyToken: journeySettings.journeyToken,
-                applicationToken: TokenHolder.tokens.journeyApplicationToken
+                applicationToken: TokenHolder.tokens.journeyApplicationToken,
+                production: journeySettings.production
             )
             await UIUtils.presentView(viewController: WebViewController(url: urlPlugin.getPluginURL(), onFinish: onFinish), presentationStyle: .overFullScreen)
         }
