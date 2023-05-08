@@ -15,8 +15,8 @@ public class AlloySettings {
     // Configure SDK with production environment (default is false)
     public var production = false
 
-    // Configure SDK for make tests in environment (default is false)
-    public var realProduction = false
+    // Configure SDK for make tests in environment (default is true)
+    public var realProduction = true
 
     public var codelessFinalValidation = false
 

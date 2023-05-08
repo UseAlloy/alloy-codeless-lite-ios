@@ -50,12 +50,12 @@
             headers.add(HTTPHeader.authorization(bearerToken: TokenHolder.tokens.accessToken))
 
             switch self {
-            case .createJourney:
+            case .createJourney(_, let journeySettings):
                 headers.add(name:"alloy-journey-override-sync", value: "true")
+                headers.add(name:"alloy-sandbox", value: "\(!journeySettings.production)")
             default:
                 break
             }
-
             return headers
 
         }
