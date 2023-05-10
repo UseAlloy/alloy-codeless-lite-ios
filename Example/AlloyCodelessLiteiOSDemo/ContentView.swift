@@ -34,7 +34,7 @@ struct ContentView: View {
                             // *** this key is part of a working example ***
                             // You should obtain your key from the alloy dashboard
                             // On settings > SDK Config
-                            apiKey: "7db38092-3df1-4e56-8d01-3a92478485ba", 
+                            apiKey: "9ca83767-f213-4aaf-bc1b-1ed0a89eaf23", 
                             production: false,
                             realProduction: true,
                             codelessFinalValidation: false
@@ -68,13 +68,13 @@ struct ContentView: View {
                             resumeJourney.toggle()
                             // We are creating 2 entities for the journey application using only first and last name.
                             // The Entity data needed will vary depending on the services associated to your workflows.
-                            let entityDataPerson = Entity.EntityData(nameFirst: "John", nameLast: "Doe")
-                            let entityDataPerson2 = Entity.EntityData(nameFirst: "Julie", nameLast: "Tam")
+                            let entityDataPerson = Entity.EntityData(nameFirst: "John", nameLast: "Doe", phoneNumber: "5555555555", emailAddress: "test@test.com", documentSsn: "111111112")
+                            let entityDataPerson2 = Entity.EntityData(nameFirst: "Julie", nameLast: "Tam", addressCountryCode: "US", documentSsn: "111111111")
                             // We add the entity data to an entity structure. Entity type can be person or business
                             // The branch name needs to match the branch names on your journey.
                             // If you only have one branch, you don't need to pass a branch name.
-                            let entityPerson = Entity(entityData: entityDataPerson, entityType: "person", branchName: "vouched")
-                            let entityPerson2 = Entity(entityData: entityDataPerson2, entityType: "person", branchName: "veriff")
+                            let entityPerson = Entity(entityData: entityDataPerson, entityType: "person", branchName: "vouched", externalEntityId: "EX-1234x")
+                            let entityPerson2 = Entity(entityData: entityDataPerson2, entityType: "person", branchName: "veriff", externalEntityId: "EX-5678x")
 
                             let entities = EntityData(entities: [entityPerson, entityPerson2], additionalEntities: false)
                             // *** this key is part of a working example ***
