@@ -18,13 +18,4 @@ public class JourneySettings {
         self.entities = entities
         self.production = production
     }
-
-    public func getFirstNameEntity(withIndex i: Int) -> String {
-        return entities.entities[i].entityData.nameFirst
-    }
-
-    public func getLastNameEntity(withIndex i: Int) -> String {
-        return entities.entities[i].entityData.nameLast
-
-    }
 }

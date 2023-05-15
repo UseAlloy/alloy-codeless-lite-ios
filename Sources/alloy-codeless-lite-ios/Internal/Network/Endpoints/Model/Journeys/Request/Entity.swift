@@ -9,8 +9,8 @@ import Foundation
 public struct Entity: Codable {
 
     public struct EntityData: Codable {
-        public let nameFirst: String
-        public let nameLast: String
+        public let nameFirst: String?
+        public let nameLast: String?
         public let  nameMiddle: String?
         public let  phoneNumber: String?
         public let  emailAddress: String?
@@ -52,8 +52,8 @@ public struct Entity: Codable {
         // MARK: Initializers
 
         public init(
-            nameFirst: String,
-            nameLast: String,
+            nameFirst: String? = nil,
+            nameLast: String? = nil,
             nameMiddle: String? = nil,
             phoneNumber: String? = nil,
             emailAddress: String? = nil,
@@ -90,8 +90,8 @@ public struct Entity: Codable {
 
         public init(from decoder: Decoder) throws {
             let values = try decoder.container(keyedBy: CodingKeys.self)
-            nameFirst = try values.decode(String.self, forKey: .nameFirst)
-            nameLast = try values.decode(String.self, forKey: .nameLast)
+            nameFirst = try values.decodeIfPresent(String.self, forKey: .nameFirst)
+            nameLast = try values.decodeIfPresent(String.self, forKey: .nameLast)
             nameMiddle = try values.decodeIfPresent(String.self, forKey: .nameMiddle)
             phoneNumber = try values.decodeIfPresent(String.self, forKey: .phoneNumber)
             emailAddress = try values.decodeIfPresent(String.self, forKey: .emailAddress)
