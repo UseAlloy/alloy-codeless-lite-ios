@@ -8,15 +8,17 @@ internal struct PluginURLBuilder {
     var journeyToken: String
     var applicationToken: String
     var production: Bool
+    var showHeader: Bool
 
-    init(apiKey: String, journeyToken: String, applicationToken: String, production: Bool) {
+    init(apiKey: String, journeyToken: String, applicationToken: String, production: Bool, showHeader: Bool) {
         self.apiKey = apiKey
         self.journeyToken = journeyToken
         self.applicationToken = applicationToken
         self.production = production && false
+        self.showHeader = showHeader && true
     }
 
     public func getPluginURL() -> String {
-        baseUrl  + "journeyApplicationToken=\(applicationToken)&journeyToken=\(journeyToken)&key=\(apiKey)&production=\(production)"
+        baseUrl  + "journeyApplicationToken=\(applicationToken)&journeyToken=\(journeyToken)&key=\(apiKey)&production=\(production)&showHeader=\(showHeader)"
     }
 }
