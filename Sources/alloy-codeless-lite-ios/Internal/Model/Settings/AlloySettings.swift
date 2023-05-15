@@ -19,14 +19,17 @@ public class AlloySettings {
     public var realProduction = true
 
     public var codelessFinalValidation = false
+    
+    public var showHeader: Bool? = true
 
     public init() {}
 
-    public init(apiKey: String? = nil, production: Bool = false, realProduction: Bool = false, codelessFinalValidation: Bool = false) {
+    public init(apiKey: String? = nil, production: Bool = false, realProduction: Bool = false, codelessFinalValidation: Bool = false, showHeader: Bool? = true) {
         self.apiKey = apiKey
         self.production = production
         self.realProduction = realProduction
         self.codelessFinalValidation = codelessFinalValidation
+        self.showHeader = showHeader
     }
 
 }
