@@ -26,6 +26,7 @@ public struct Entity: Codable {
         public let  documentLicense: String?
         public let  documentPassport: String?
         public let  gender: String?
+        public let  additionalData: [String:String]?
 
         // MARK: CodingKeys
 
@@ -47,6 +48,7 @@ public struct Entity: Codable {
             case documentLicense = "document_license"
             case documentPassport = "document_passport"
             case gender = "gender"
+            case additionalData = "additionalData"
         }
 
         // MARK: Initializers
@@ -68,7 +70,8 @@ public struct Entity: Codable {
             documentIdCard: String? = nil,
             documentLicense: String? = nil,
             documentPassport: String? = nil,
-            gender: String? = nil) {
+            gender: String? = nil,
+            additionalData: [String:String]? = nil) {
             self.nameFirst = nameFirst
             self.nameLast = nameLast
             self.nameMiddle = nameMiddle
@@ -86,6 +89,7 @@ public struct Entity: Codable {
             self.documentLicense = documentLicense
             self.documentPassport = documentPassport
             self.gender = gender
+            self.additionalData = additionalData
         }
 
         public init(from decoder: Decoder) throws {
@@ -107,6 +111,7 @@ public struct Entity: Codable {
             documentLicense = try values.decodeIfPresent(String.self, forKey: .documentLicense)
             documentPassport = try values.decodeIfPresent(String.self, forKey: .documentPassport)
             gender = try values.decodeIfPresent(String.self, forKey: .gender)
+            additionalData = try values.decodeIfPresent(Dictionary.self, forKey: .additionalData)
         }
     }
 
