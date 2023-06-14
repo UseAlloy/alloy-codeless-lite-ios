@@ -76,15 +76,14 @@
         var parameterEncoding: ParameterEncoding {
             .noEncodingJSON
         }
-
+        
         var showDebugInfo: Bool {
-
-    #if DEBUG
-            return true
-    #else
-            return false
-    #endif
-
+            switch self {
+            case .createJourney(_, let journeySettings):
+                return journeySettings.showDebugInfo
+            case .getStatusJourney(_, let journeySettings):
+                return journeySettings.showDebugInfo
+            }
         }
     }
 

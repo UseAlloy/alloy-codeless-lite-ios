@@ -59,11 +59,10 @@ extension AuthEndpoint: Endpoint {
     
     var showDebugInfo: Bool {
         
-#if DEBUG
-        return true
-#else
-        return false
-#endif
+        switch self {
+            case .initialization(let settings):
+            return settings.showDebugInfo
+        }
         
     }
     
