@@ -165,10 +165,10 @@ public struct Entity: Codable {
                 entityDataDict[CodingKeys.documentLicense.rawValue] = documentLicense
             }
             if documentPassport != nil {
-                entityDataDict[CodingKeys.birthDate.rawValue] = documentPassport
+                entityDataDict[CodingKeys.documentPassport.rawValue] = documentPassport
             }
             if gender != nil {
-                entityDataDict[CodingKeys.birthDate.rawValue] = gender
+                entityDataDict[CodingKeys.gender.rawValue] = gender
             }
             if let additionalData = additionalData {
                 entityDataDict.merge(additionalData) { (_, new) in new }
