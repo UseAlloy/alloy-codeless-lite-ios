@@ -111,8 +111,72 @@ public struct Entity: Codable {
             documentLicense = try values.decodeIfPresent(String.self, forKey: .documentLicense)
             documentPassport = try values.decodeIfPresent(String.self, forKey: .documentPassport)
             gender = try values.decodeIfPresent(String.self, forKey: .gender)
-            additionalData = try values.decodeIfPresent(Dictionary.self, forKey: .additionalData)
+            additionalData = nil
         }
+        
+        
+        // This is used to transform all the data from the entity to a dict so the additionalData can be appended
+        fileprivate func entityDataToDict() -> [String:String] {
+            var entityDataDict = [String: String]()
+            
+            if nameFirst != nil {
+                entityDataDict[CodingKeys.nameFirst.rawValue] = nameFirst
+            }
+            if nameLast != nil {
+                entityDataDict[CodingKeys.nameLast.rawValue] = nameLast
+            }
+            if nameMiddle != nil {
+                entityDataDict[CodingKeys.nameMiddle.rawValue] = nameMiddle
+            }
+            if phoneNumber != nil {
+                entityDataDict[CodingKeys.phoneNumber.rawValue] = phoneNumber
+            }
+            if emailAddress != nil {
+                entityDataDict[CodingKeys.emailAddress.rawValue] = emailAddress
+            }
+            if addressLine1 != nil {
+                entityDataDict[CodingKeys.addressLine1.rawValue] = addressLine1
+            }
+            if addressLine2 != nil {
+                entityDataDict[CodingKeys.addressLine2.rawValue] = addressLine2
+            }
+            if addressCity != nil {
+                entityDataDict[CodingKeys.addressCity.rawValue] = addressCity
+            }
+            if addressState != nil {
+                entityDataDict[CodingKeys.addressState.rawValue] = addressState
+            }
+            if addressPostalCode != nil {
+                entityDataDict[CodingKeys.addressPostalCode.rawValue] = addressPostalCode
+            }
+            if addressCountryCode != nil {
+                entityDataDict[CodingKeys.addressCountryCode.rawValue] = addressCountryCode
+            }
+            if birthDate != nil {
+                entityDataDict[CodingKeys.birthDate.rawValue] = birthDate
+            }
+            if documentSsn != nil {
+                entityDataDict[CodingKeys.documentSsn.rawValue] = documentSsn
+            }
+            if documentIdCard != nil {
+                entityDataDict[CodingKeys.documentIdCard.rawValue] = documentIdCard
+            }
+            if documentLicense != nil {
+                entityDataDict[CodingKeys.documentLicense.rawValue] = documentLicense
+            }
+            if documentPassport != nil {
+                entityDataDict[CodingKeys.birthDate.rawValue] = documentPassport
+            }
+            if gender != nil {
+                entityDataDict[CodingKeys.birthDate.rawValue] = gender
+            }
+            if let additionalData = additionalData {
+                entityDataDict.merge(additionalData) { (_, new) in new }
+            }
+            
+            return entityDataDict
+        }
+        
     }
 
     let entityData: EntityData
@@ -152,7 +216,7 @@ public struct Entity: Codable {
 
         var container = encoder.container(keyedBy: CodingKeys.self)
 
-        try container.encode(entityData, forKey: .entityData)
+        try container.encode(entityData.entityDataToDict(), forKey: .entityData)
         try container.encode(entityType, forKey: .entityType)
         try container.encode(branchName, forKey: .branchName)
         try container.encodeIfPresent(externalEntityId, forKey: .externalEntityId)
