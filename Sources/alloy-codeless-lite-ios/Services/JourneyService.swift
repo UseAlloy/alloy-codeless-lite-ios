@@ -15,7 +15,12 @@ internal struct JourneyService {
     internal mutating func startJourney(journeySettings: JourneySettings, onFinish: @escaping (FinishJourneyResult?) -> Void) async throws -> StartJourneyResult? {
         self.onFinish = onFinish
         self.journeySettings = journeySettings
-        let result = try await createJourney()
+        
+        if let journeyApplicationToken = journeySettings.journeyApplicationToken {
+            TokenHolder.tokens.journeyApplicationToken = journeyApplicationToken
+        }
+        
+        let result = journeySettings.journeyApplicationToken == nil ? try await createJourney() : try await getStatusJourney()
         if result.resultCode == .RESULT_OK, result.journeyResultData != nil {
             let urlPlugin = PluginURLBuilder(
                 apiKey: AlloyCodelessLiteiOS.shared.alloySettings.apiKey ?? "",
