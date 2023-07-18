@@ -10,6 +10,15 @@ import UIKit
 internal struct UIUtils {
 
     @MainActor
+    static func dismissCurrentView() {
+        UIApplication
+            .shared
+            .connectedScenes
+            .compactMap { ($0 as? UIWindowScene)?.keyWindow }
+            .last?.rootViewController?.presentedViewController?.dismiss(animated: true)
+    }
+    
+    @MainActor
     static func presentView(viewController: UIHostingController<some View>, presentationStyle: UIModalPresentationStyle) {
         let topViewController = UIUtils.topMostController()
         viewController.modalPresentationStyle = presentationStyle

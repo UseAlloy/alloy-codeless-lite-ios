@@ -15,13 +15,5 @@ internal extension View {
             self
         }
     }
-
-    func dismiss() {
-        UIApplication
-            .shared
-            .keyWindow?
-            .rootViewController?
-            .dismiss(animated: true, completion: nil)
-    }
 }
 
