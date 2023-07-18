@@ -34,6 +34,7 @@ struct WebView: UIViewRepresentable {
             self.parent = parent
         }
 
+        @MainActor
         func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
             if let host = navigationAction.request.url?.host {
                 if host.contains("exit") {
@@ -41,7 +42,7 @@ struct WebView: UIViewRepresentable {
                     if let completion = parent.onFinish {
                         completion(FinishJourneyResult(finishResultCode: .FINISH_RESULT_COMPLETED, finishResultMessage: "", journeyResultData: nil))
                     }
-                    self.parent.dismiss()
+                    UIUtils.dismissCurrentView()
                     return
                 }
             }
