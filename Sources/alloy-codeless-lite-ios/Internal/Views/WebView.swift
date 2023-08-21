@@ -40,7 +40,13 @@ struct WebView: UIViewRepresentable {
                 if host.contains("exit") {
                     decisionHandler(.cancel)
                     if let completion = parent.onFinish {
-                        completion(FinishJourneyResult(finishResultCode: .FINISH_RESULT_COMPLETED, finishResultMessage: "", journeyResultData: nil))
+                        Task {
+                            if let data = try await AlloyCodelessLiteiOS.shared.getJourneyData() {
+                                completion(FinishJourneyResult(finishResultCode: data.status ?? "", finishResultMessage: data.journeyApplicationStatus ?? "", journeyResultData: data))
+                            } else {
+                                completion(FinishJourneyResult(finishResultCode: "", finishResultMessage: "", journeyResultData: nil))
+                            }
+                        }
                     }
                     UIUtils.dismissCurrentView()
                     return
