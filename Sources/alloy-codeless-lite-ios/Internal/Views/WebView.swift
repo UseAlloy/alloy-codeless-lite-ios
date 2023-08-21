@@ -43,12 +43,15 @@ struct WebView: UIViewRepresentable {
                         Task {
                             if let data = try await AlloyCodelessLiteiOS.shared.getJourneyData() {
                                 completion(FinishJourneyResult(finishResultCode: data.status ?? "", finishResultMessage: data.journeyApplicationStatus ?? "", journeyResultData: data))
+                                UIUtils.dismissCurrentView()
                             } else {
                                 completion(FinishJourneyResult(finishResultCode: "", finishResultMessage: "", journeyResultData: nil))
+                                UIUtils.dismissCurrentView()
                             }
                         }
+                    } else {
+                        UIUtils.dismissCurrentView()
                     }
-                    UIUtils.dismissCurrentView()
                     return
                 }
             }
