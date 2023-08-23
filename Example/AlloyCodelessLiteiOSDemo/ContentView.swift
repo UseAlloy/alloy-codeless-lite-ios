@@ -86,7 +86,8 @@ struct ContentView: View {
                                 production: false,
                                 showDebugInfo: true
                             )
-                            let journeyResult = try await AlloyCodelessLiteiOS.shared.startJourney(journeySettings: journeySettings, onFinish: { _ in
+                            let journeyResult = try await AlloyCodelessLiteiOS.shared.startJourney(journeySettings: journeySettings, onFinish: { data in
+                                print("Journey status: \(data?.finishResultMessage ?? "")")
                                 showResultJourney.toggle()
                             })
                             if let resultJourney = journeyResult?.journeyResultData {
