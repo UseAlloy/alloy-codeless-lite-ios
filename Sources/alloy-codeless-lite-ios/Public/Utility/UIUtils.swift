@@ -10,12 +10,15 @@ import UIKit
 internal struct UIUtils {
 
     @MainActor
-    static func dismissCurrentView() {
-        UIApplication
-            .shared
-            .connectedScenes
-            .compactMap { ($0 as? UIWindowScene)?.keyWindow }
-            .last?.rootViewController?.presentedViewController?.dismiss(animated: true)
+    static func dismissCurrentView() {        
+        if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }),
+           let rootViewController = window.rootViewController {
+            var presentedViewController = rootViewController
+            while let nextPresentedViewController = presentedViewController.presentedViewController {
+                presentedViewController = nextPresentedViewController
+            }
+            presentedViewController.dismiss(animated: true, completion: nil)
+        }
     }
     
     @MainActor
