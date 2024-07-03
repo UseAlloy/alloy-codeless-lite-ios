@@ -11,11 +11,22 @@ internal struct UIUtils {
 
     @MainActor
     static func dismissCurrentView() {
-        UIApplication
-            .shared
-            .connectedScenes
-            .compactMap { ($0 as? UIWindowScene)?.keyWindow }
-            .last?.rootViewController?.presentedViewController?.dismiss(animated: true)
+        if #available(iOS 15.0, *) {
+            UIApplication
+                .shared
+                .connectedScenes
+                .compactMap { ($0 as? UIWindowScene)?.keyWindow }
+                .last?.rootViewController?.presentedViewController?.dismiss(animated: true)
+        } else {
+            UIApplication
+                .shared
+                .connectedScenes
+                .compactMap { ($0 as? UIWindowScene)?.windows.first(where: { $0.isKeyWindow }) }
+                .last?
+                .rootViewController?
+                .presentedViewController?
+                .dismiss(animated: true)
+        }
     }
     
     @MainActor
