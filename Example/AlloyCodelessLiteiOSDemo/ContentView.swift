@@ -89,7 +89,7 @@ struct ContentView: View {
                                 print ("\(journeyResult?.resultMessage ?? "")")
                             } else {
                                 if let journeyResult = journeyResult {
-                                    print("Result: The Journey has been init sucessful \(journeyResult)")
+                                    print("Result: The Journey has been init successfully \(journeyResult)")
                                 }
                             }
                         } else {
