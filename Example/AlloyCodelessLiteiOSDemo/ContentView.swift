@@ -41,8 +41,8 @@ struct ContentView: View {
                             showDebugInfo: true,
                             journeyToken: "J-UMEhLDP3p759425pz1uP",
                             journeyApplicationToken: "JA-wXLDZMFCnKIor5xqaOcH",
-                            appUrl: "https://alloysdk.alloy.co",
-                            apiUrl: "https://docv.alloy.co"
+                            appUrl: "https://corekube-prod-alloysdk.app.alloy.com",
+                            apiUrl: "https://corekube-prod-alloysdk.api.alloy.com"
                         )
 
                         let authInitResult: AuthInitResult = try await AlloyCodelessLiteiOS.shared.authInit(alloySettings: alloySettings)
