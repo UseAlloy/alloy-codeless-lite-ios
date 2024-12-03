@@ -23,16 +23,28 @@ public class AlloySettings {
     public var showHeader: Bool? = true
     
     public var showDebugInfo: Bool = false
+    
+    public var  journeyToken: String?
+    
+    public var journeyApplicationToken: String?
+    
+    public var appUrl: String = "https://corekube-prod-alloysdk.app.alloy.com"
+    
+    public var apiUrl: String = "https://corekube-prod-alloysdk.api.alloy.com"
 
     public init() {}
 
-    public init(apiKey: String? = nil, production: Bool = false, realProduction: Bool = false, codelessFinalValidation: Bool = false, showHeader: Bool? = true, showDebugInfo: Bool = false) {
+    public init(apiKey: String? = nil, production: Bool = false, realProduction: Bool = false, codelessFinalValidation: Bool = false, showHeader: Bool? = true, showDebugInfo: Bool = false, journeyToken: String, journeyApplicationToken: String?, appUrl: String? = nil, apiUrl: String? = nil) {
         self.apiKey = apiKey
         self.production = production
         self.realProduction = realProduction
         self.codelessFinalValidation = codelessFinalValidation
         self.showHeader = showHeader
         self.showDebugInfo = showDebugInfo
+        self.journeyToken = journeyToken
+        self.journeyApplicationToken = journeyApplicationToken
+        self.appUrl = appUrl ?? "https://corekube-prod-alloysdk.app.alloy.com"
+        self.apiUrl = apiUrl ?? "https://corekube-prod-alloysdk.api.alloy.com"
     }
 
 }
