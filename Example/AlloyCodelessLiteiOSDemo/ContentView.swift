@@ -34,11 +34,15 @@ struct ContentView: View {
                             // *** this key is part of a working example ***
                             // You should obtain your key from the alloy dashboard
                             // On settings > SDK Config
-                            apiKey: "9ca83767-f213-4aaf-bc1b-1ed0a89eaf23", 
+                            apiKey: "22501763-79c3-4f8d-a069-ce99afad16d5",
                             production: false,
                             realProduction: true,
                             codelessFinalValidation: false,
-                            showDebugInfo: true
+                            showDebugInfo: true,
+                            journeyToken: "J-UMEhLDP3p759425pz1uP",
+                            journeyApplicationToken: "JA-wXLDZMFCnKIor5xqaOcH",
+                            appUrl: "https://alloysdk.alloy.co",
+                            apiUrl: "https://docv.alloy.co"
                         )
 
                         let authInitResult: AuthInitResult = try await AlloyCodelessLiteiOS.shared.authInit(alloySettings: alloySettings)
@@ -67,22 +71,9 @@ struct ContentView: View {
                     Task {
                         if !resumeJourney {
                             resumeJourney.toggle()
-                            // We are creating 2 entities for the journey application using only first and last name.
-                            // The Entity data needed will vary depending on the services associated to your workflows.
-                            let entityDataPerson = Entity.EntityData(nameFirst: "John", nameLast: "Doe", phoneNumber: "5555555555", emailAddress: "test@test.com", documentSsn: "111111112")
-                            let entityDataPerson2 = Entity.EntityData(nameFirst: "Julie", nameLast: "Tam", addressCountryCode: "US", documentSsn: "111111111")
-                            // We add the entity data to an entity structure. Entity type can be person or business
-                            // The branch name needs to match the branch names on your journey.
-                            // If you only have one branch, you don't need to pass a branch name.
-                            let entityPerson = Entity(entityData: entityDataPerson, entityType: "person", branchName: "vouched", externalEntityId: "EX-1234x")
-                            let entityPerson2 = Entity(entityData: entityDataPerson2, entityType: "person", branchName: "veriff", externalEntityId: "EX-5678x")
-
-                            let entities = EntityData(entities: [entityPerson, entityPerson2], additionalEntities: false)
-                            // *** this key is part of a working example ***
-                            // You should obtain your journey token from the journey's list
                             let journeySettings = JourneySettings(
                                 journeyToken: "J-UMEhLDP3p759425pz1uP",
-                                entities: entities,
+                                journeyApplicationToken: "JA-wXLDZMFCnKIor5xqaOcH",
                                 production: false,
                                 showDebugInfo: true
                             )
@@ -98,7 +89,7 @@ struct ContentView: View {
                                 print ("\(journeyResult?.resultMessage ?? "")")
                             } else {
                                 if let journeyResult = journeyResult {
-                                    print("Result: The Journey has been init sucessfull \(journeyResult)")
+                                    print("Result: The Journey has been init sucessful \(journeyResult)")
                                 }
                             }
                         } else {
