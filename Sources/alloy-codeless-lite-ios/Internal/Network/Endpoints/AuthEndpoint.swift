@@ -45,7 +45,7 @@ extension AuthEndpoint: Endpoint {
         
         switch self {
         case .initialization(let settings):
-            return ["id": settings.apiKey ?? ""]
+            return ["id": settings.apiKey ?? "", "journey_token": settings.journeyToken ?? "", "journey_application_token": settings.journeyApplicationToken ?? ""]
         }
     }
     
