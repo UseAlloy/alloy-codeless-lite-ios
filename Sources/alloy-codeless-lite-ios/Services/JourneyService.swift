@@ -27,7 +27,8 @@ internal struct JourneyService {
                 journeyToken: journeySettings.journeyToken,
                 applicationToken: TokenHolder.tokens.journeyApplicationToken,
                 production: journeySettings.production,
-                showHeader:  AlloyCodelessLiteiOS.shared.alloySettings.showHeader ?? true
+                showHeader:  AlloyCodelessLiteiOS.shared.alloySettings.showHeader ?? true,
+                appUrl: AlloyCodelessLiteiOS.shared.alloySettings.appUrl
             )
             UIUtils.presentView(viewController: WebViewController(url: urlPlugin.getPluginURL(), onFinish: onFinish), presentationStyle: .overFullScreen)
         }
@@ -59,7 +60,8 @@ internal struct JourneyService {
                 journeyToken: journeySettings.journeyToken,
                 applicationToken: TokenHolder.tokens.journeyApplicationToken,
                 production: journeySettings.production,
-                showHeader:  AlloyCodelessLiteiOS.shared.alloySettings.showHeader ?? true
+                showHeader:  AlloyCodelessLiteiOS.shared.alloySettings.showHeader ?? true,
+                appUrl: AlloyCodelessLiteiOS.shared.alloySettings.appUrl
             )
             await UIUtils.presentView(viewController: WebViewController(url: urlPlugin.getPluginURL(), onFinish: onFinish), presentationStyle: .overFullScreen)
         }
