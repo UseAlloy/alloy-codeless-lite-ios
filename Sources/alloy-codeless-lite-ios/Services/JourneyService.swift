@@ -26,6 +26,8 @@ internal struct JourneyService {
                 apiKey: AlloyCodelessLiteiOS.shared.alloySettings.apiKey ?? "",
                 journeyToken: journeySettings.journeyToken,
                 applicationToken: TokenHolder.tokens.journeyApplicationToken,
+                entityToken: AlloyCodelessLiteiOS.shared.alloySettings.entityToken ?? "",
+                isSingleEntity: AlloyCodelessLiteiOS.shared.alloySettings.isSingleEntity,
                 production: journeySettings.production,
                 showHeader:  AlloyCodelessLiteiOS.shared.alloySettings.showHeader ?? true,
                 appUrl: AlloyCodelessLiteiOS.shared.alloySettings.appUrl
@@ -59,6 +61,8 @@ internal struct JourneyService {
                 apiKey: AlloyCodelessLiteiOS.shared.alloySettings.apiKey ?? "",
                 journeyToken: journeySettings.journeyToken,
                 applicationToken: TokenHolder.tokens.journeyApplicationToken,
+                entityToken: AlloyCodelessLiteiOS.shared.alloySettings.entityToken ?? "",
+                isSingleEntity: AlloyCodelessLiteiOS.shared.alloySettings.isSingleEntity,
                 production: journeySettings.production,
                 showHeader:  AlloyCodelessLiteiOS.shared.alloySettings.showHeader ?? true,
                 appUrl: AlloyCodelessLiteiOS.shared.alloySettings.appUrl
