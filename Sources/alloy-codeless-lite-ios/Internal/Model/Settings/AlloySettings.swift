@@ -24,17 +24,21 @@ public class AlloySettings {
     
     public var showDebugInfo: Bool = false
     
-    public var  journeyToken: String?
+    public var journeyToken: String?
     
     public var journeyApplicationToken: String?
     
     public var appUrl: String = "https://corekube-prod-alloysdk.app.alloy.com"
     
     public var apiUrl: String = "https://corekube-prod-alloysdk.api.alloy.com"
+    
+    public var entityToken: String?
+    
+    public var isSingleEntity: Bool = false
 
     public init() {}
 
-    public init(apiKey: String? = nil, production: Bool = false, realProduction: Bool = false, codelessFinalValidation: Bool = false, showHeader: Bool? = true, showDebugInfo: Bool = false, journeyToken: String, journeyApplicationToken: String?, appUrl: String? = nil, apiUrl: String? = nil) {
+    public init(apiKey: String? = nil, production: Bool = false, realProduction: Bool = false, codelessFinalValidation: Bool = false, showHeader: Bool? = true, showDebugInfo: Bool = false, journeyToken: String, journeyApplicationToken: String?, appUrl: String? = nil, apiUrl: String? = nil, entityToken: String? = nil, isSingleEntity: Bool = false) {
         self.apiKey = apiKey
         self.production = production
         self.realProduction = realProduction
@@ -45,6 +49,8 @@ public class AlloySettings {
         self.journeyApplicationToken = journeyApplicationToken
         self.appUrl = appUrl ?? "https://corekube-prod-alloysdk.app.alloy.com"
         self.apiUrl = apiUrl ?? "https://corekube-prod-alloysdk.api.alloy.com"
+        self.entityToken = entityToken
+        self.isSingleEntity = isSingleEntity
     }
 
 }
