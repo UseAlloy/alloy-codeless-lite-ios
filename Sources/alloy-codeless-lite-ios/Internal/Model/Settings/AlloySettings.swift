@@ -24,7 +24,7 @@ public class AlloySettings {
     
     public var showDebugInfo: Bool = false
     
-    public var  journeyToken: String?
+    public var journeyToken: String?
     
     public var journeyApplicationToken: String?
     
