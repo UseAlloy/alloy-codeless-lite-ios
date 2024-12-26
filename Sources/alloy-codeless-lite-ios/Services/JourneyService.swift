@@ -68,8 +68,8 @@ internal struct JourneyService {
                 production: journeySettings.production,
                 showHeader:  AlloyCodelessLiteiOS.shared.alloySettings.showHeader ?? true,
                 appUrl: AlloyCodelessLiteiOS.shared.alloySettings.appUrl,
-                customTheme:  AlloyCodelessLiteiOS.shared.alloySettings.customTheme!,
-                componentOverride: AlloyCodelessLiteiOS.shared.alloySettings.componentOverride!
+                customTheme:  AlloyCodelessLiteiOS.shared.alloySettings.customTheme,
+                componentOverride: AlloyCodelessLiteiOS.shared.alloySettings.componentOverride
             )
             await UIUtils.presentView(viewController: WebViewController(url: urlPlugin.getPluginURL(), onFinish: onFinish), presentationStyle: .overFullScreen)
         }

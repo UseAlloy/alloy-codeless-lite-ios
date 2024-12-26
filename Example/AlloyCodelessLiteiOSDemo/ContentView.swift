@@ -56,7 +56,7 @@ struct ContentView: View {
                             apiUrl: "https://corekube-dev-alloysdk.api.alloy.com",
                             entityToken: "P-99ipW7Xtx88RdxfN2Rpr",
                             isSingleEntity: true,
-                            CustomTheme: theme
+                            customTheme: theme
                         )
 
                         let authInitResult: AuthInitResult = try await AlloyCodelessLiteiOS.shared.authInit(alloySettings: alloySettings)
