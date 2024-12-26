@@ -27,10 +27,12 @@ internal struct JourneyService {
                 journeyToken: journeySettings.journeyToken,
                 applicationToken: TokenHolder.tokens.journeyApplicationToken,
                 entityToken: AlloyCodelessLiteiOS.shared.alloySettings.entityToken ?? "",
-                isSingleEntity: AlloyCodelessLiteiOS.shared.alloySettings.isSingleEntity,
+                isSingleEntity: AlloyCodelessLiteiOS.shared.alloySettings.isSingleEntity ?? false,
                 production: journeySettings.production,
                 showHeader:  AlloyCodelessLiteiOS.shared.alloySettings.showHeader ?? true,
-                appUrl: AlloyCodelessLiteiOS.shared.alloySettings.appUrl
+                appUrl: AlloyCodelessLiteiOS.shared.alloySettings.appUrl,
+                customTheme: AlloyCodelessLiteiOS.shared.alloySettings.customTheme,
+                componentOverride: AlloyCodelessLiteiOS.shared.alloySettings.componentOverride
             )
             UIUtils.presentView(viewController: WebViewController(url: urlPlugin.getPluginURL(), onFinish: onFinish), presentationStyle: .overFullScreen)
         }
@@ -62,10 +64,12 @@ internal struct JourneyService {
                 journeyToken: journeySettings.journeyToken,
                 applicationToken: TokenHolder.tokens.journeyApplicationToken,
                 entityToken: AlloyCodelessLiteiOS.shared.alloySettings.entityToken ?? "",
-                isSingleEntity: AlloyCodelessLiteiOS.shared.alloySettings.isSingleEntity,
+                isSingleEntity: AlloyCodelessLiteiOS.shared.alloySettings.isSingleEntity ?? false,
                 production: journeySettings.production,
                 showHeader:  AlloyCodelessLiteiOS.shared.alloySettings.showHeader ?? true,
-                appUrl: AlloyCodelessLiteiOS.shared.alloySettings.appUrl
+                appUrl: AlloyCodelessLiteiOS.shared.alloySettings.appUrl,
+                customTheme:  AlloyCodelessLiteiOS.shared.alloySettings.customTheme!,
+                componentOverride: AlloyCodelessLiteiOS.shared.alloySettings.componentOverride!
             )
             await UIUtils.presentView(viewController: WebViewController(url: urlPlugin.getPluginURL(), onFinish: onFinish), presentationStyle: .overFullScreen)
         }
