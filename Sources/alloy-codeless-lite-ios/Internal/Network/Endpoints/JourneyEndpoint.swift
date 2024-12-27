@@ -25,7 +25,7 @@
             case .createJourney(_, let journeySettings):
                 return "/v1/journeys/\(journeySettings.journeyToken)/applications"
             case .getStatusJourney(_, let journeySettings):
-               return "/v1/journeys/\(journeySettings.journeyToken)/applications/\(TokenHolder.tokens.journeyApplicationToken)"
+                return "/journeys/application/"
             }
         }
 

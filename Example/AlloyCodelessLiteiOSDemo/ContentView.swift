@@ -30,6 +30,16 @@ struct ContentView: View {
             VStack (spacing: 24) {
                 Button {
                     Task {
+                        
+                           
+                        
+                        let theme = CustomTheme(
+                            primaryColor: "#0000FF",
+                            backgroundColor: "#000000",
+                            textColor: "#FFFFFF")
+                            
+
+                        
                         let alloySettings = AlloySettings(
                             // *** this key is part of a working example ***
                             // You should obtain your key from the alloy dashboard
@@ -41,11 +51,12 @@ struct ContentView: View {
                             showHeader: false,
                             showDebugInfo: true,
                             journeyToken: "J-72ADYuJif7FOiDsYZoRE",
-                            journeyApplicationToken: "JA-u1O0Xy7dhhdSjqcfSQQk",
+                            journeyApplicationToken: "JA-pY7VpIPaWddItw2QfIpp",
                             appUrl: "https://corekube-dev-alloysdk.app.alloy.com",
                             apiUrl: "https://corekube-dev-alloysdk.api.alloy.com",
-                            entityToken: "P-CvoABf21aramOazpQoM4",
-                            isSingleEntity:true
+                            entityToken: "P-99ipW7Xtx88RdxfN2Rpr",
+                            isSingleEntity: true,
+                            customTheme: theme
                         )
 
                         let authInitResult: AuthInitResult = try await AlloyCodelessLiteiOS.shared.authInit(alloySettings: alloySettings)
@@ -77,7 +88,7 @@ struct ContentView: View {
                            
                             let journeySettings = JourneySettings(
                                 journeyToken: "J-72ADYuJif7FOiDsYZoRE",
-                                journeyApplicationToken: "JA-u1O0Xy7dhhdSjqcfSQQk",
+                                journeyApplicationToken: "JA-pY7VpIPaWddItw2QfIpp",
                                 production: false,
                                 showDebugInfo: true
                             )

@@ -6,6 +6,8 @@
 
 import Foundation
 
+
+
 public class AlloySettings {
 
     // MARK: - Properties
@@ -28,17 +30,21 @@ public class AlloySettings {
     
     public var journeyApplicationToken: String?
     
-    public var appUrl: String = "https://corekube-prod-alloysdk.app.alloy.com"
+    public var appUrl: String = "https://alloysdk.alloy.co"
     
-    public var apiUrl: String = "https://corekube-prod-alloysdk.api.alloy.com"
+    public var apiUrl: String = "https://docv.alloy.co"
     
     public var entityToken: String?
     
-    public var isSingleEntity: Bool = false
+    public var isSingleEntity: Bool?
+    
+    public var customTheme: CustomTheme?
+    
+    public var componentOverride: ComponentOverride?
 
     public init() {}
 
-    public init(apiKey: String? = nil, production: Bool = false, realProduction: Bool = false, codelessFinalValidation: Bool = false, showHeader: Bool? = true, showDebugInfo: Bool = false, journeyToken: String, journeyApplicationToken: String?, appUrl: String? = nil, apiUrl: String? = nil, entityToken: String? = nil, isSingleEntity: Bool = false) {
+    public init(apiKey: String? = nil, production: Bool = false, realProduction: Bool = false, codelessFinalValidation: Bool = false, showHeader: Bool? = true, showDebugInfo: Bool = false, journeyToken: String, journeyApplicationToken: String?, appUrl: String? = nil, apiUrl: String? = nil, entityToken: String? = nil, isSingleEntity: Bool? = false, customTheme: CustomTheme? = nil, componentOverride: ComponentOverride? = nil ) {
         self.apiKey = apiKey
         self.production = production
         self.realProduction = realProduction
@@ -47,10 +53,12 @@ public class AlloySettings {
         self.showDebugInfo = showDebugInfo
         self.journeyToken = journeyToken
         self.journeyApplicationToken = journeyApplicationToken
-        self.appUrl = appUrl ?? "https://corekube-prod-alloysdk.app.alloy.com"
-        self.apiUrl = apiUrl ?? "https://corekube-prod-alloysdk.api.alloy.com"
+        self.appUrl = appUrl ?? "https://alloysdk.alloy.co"
+        self.apiUrl = apiUrl ?? "https://docv.alloy.co"
         self.entityToken = entityToken
         self.isSingleEntity = isSingleEntity
+        self.customTheme = customTheme
+        self.componentOverride = componentOverride
     }
 
 }
