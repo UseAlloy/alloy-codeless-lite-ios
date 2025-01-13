@@ -23,7 +23,7 @@ public class AlloyCodelessLiteiOS: ObservableObject {
                 .request(type: AuthInitResponse.self)
 
             if result.accessToken.isEmpty {
-                return AuthInitResult(AuthInitResultErrorCode.RESULT_ERROR, Utils.NSLocalizedString("start_journey_error"))
+                return AuthInitResult(AuthInitResultErrorCode.RESULT_ERROR, "No journey application token was returned from the server.")
             }
 
             TokenHolder.tokens.accessToken = result.accessToken
