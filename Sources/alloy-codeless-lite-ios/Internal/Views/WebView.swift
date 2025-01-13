@@ -5,6 +5,7 @@ struct WebView: UIViewRepresentable {
 
     var url: String
     var onFinish: ((FinishJourneyResult) -> Void)?
+    weak var presenter: UIViewController?
 
     func makeUIView(context: Context) -> WKWebView {
         let config = WKWebViewConfiguration()
@@ -43,14 +44,14 @@ struct WebView: UIViewRepresentable {
                         Task {
                             if let data = try await AlloyCodelessLiteiOS.shared.getJourneyData() {
                                 completion(FinishJourneyResult(finishResultCode: data.status ?? "", finishResultMessage: data.journeyApplicationStatus ?? "", journeyResultData: data))
-                                UIUtils.dismissCurrentView()
+                                self.parent.presenter?.dismiss(animated: true)
                             } else {
                                 completion(FinishJourneyResult(finishResultCode: "", finishResultMessage: "", journeyResultData: nil))
-                                UIUtils.dismissCurrentView()
+                                self.parent.presenter?.dismiss(animated: true)
                             }
                         }
                     } else {
-                        UIUtils.dismissCurrentView()
+                        self.parent.presenter?.dismiss(animated: true)
                     }
                     return
                 }
@@ -63,9 +64,14 @@ struct WebView: UIViewRepresentable {
 
 internal class WebViewController: UIHostingController<WebView> {
 
+    private weak var presenter: UIViewController?
+
     @MainActor
-    public init(url: String, onFinish: @escaping (FinishJourneyResult) -> Void) {
-        super.init(rootView: WebView(url: url, onFinish: onFinish))
+    public init(url: String,
+                onFinish: @escaping (FinishJourneyResult) -> Void,
+                presenter: UIViewController) {
+        self.presenter = presenter
+        super.init(rootView: WebView(url: url, onFinish: onFinish, presenter: presenter))
     }
 
     public required init?(coder aDecoder: NSCoder) {
