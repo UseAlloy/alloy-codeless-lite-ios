@@ -52,7 +52,7 @@ internal struct JourneyService {
         if result.statusCodeError != nil {
             return StartJourneyResult(resultCode: StartJourneyResultErrorCode.RESULT_ERROR, resultMessage: result.journeyError?.messageError ?? "")
         } else if result.journeyApplicationToken?.isEmpty ?? true {
-            return StartJourneyResult(resultCode: StartJourneyResultErrorCode.RESULT_ERROR, resultMessage: Utils.NSLocalizedString("start_journey_error"))
+            return StartJourneyResult(resultCode: StartJourneyResultErrorCode.RESULT_ERROR, resultMessage: "No journey application token was returned from the server.")
         } else {
             TokenHolder.tokens.journeyApplicationToken = result.journeyApplicationToken ?? ""
             return try await getStatusJourney()
@@ -90,7 +90,7 @@ internal struct JourneyService {
         if result.statusCodeError != nil {
             return StartJourneyResult(resultCode: StartJourneyResultErrorCode.RESULT_ERROR, resultMessage: result.journeyError?.messageError ?? "")
         } else {
-            return StartJourneyResult(resultCode: StartJourneyResultErrorCode.RESULT_OK, resultMessage: Utils.NSLocalizedString("start_journey_ok"), journeyResultData: result)
+            return StartJourneyResult(resultCode: StartJourneyResultErrorCode.RESULT_OK, resultMessage: "Journey status retrieved successfully.", journeyResultData: result)
         }
     }
 
