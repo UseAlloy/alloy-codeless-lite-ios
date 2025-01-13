@@ -34,7 +34,10 @@ internal struct JourneyService {
                 customTheme: AlloyCodelessLiteiOS.shared.alloySettings.customTheme,
                 componentOverride: AlloyCodelessLiteiOS.shared.alloySettings.componentOverride
             )
-            UIUtils.presentView(viewController: WebViewController(url: urlPlugin.getPluginURL(), onFinish: onFinish), presentationStyle: .overFullScreen)
+
+            guard let topVC = UIUtils.topMostController() else { return result }
+
+            UIUtils.presentView(viewController: WebViewController(url: urlPlugin.getPluginURL(), onFinish: onFinish, presenter: topVC), presentationStyle: .overFullScreen)
         }
         return result
     }
@@ -71,7 +74,10 @@ internal struct JourneyService {
                 customTheme:  AlloyCodelessLiteiOS.shared.alloySettings.customTheme,
                 componentOverride: AlloyCodelessLiteiOS.shared.alloySettings.componentOverride
             )
-            await UIUtils.presentView(viewController: WebViewController(url: urlPlugin.getPluginURL(), onFinish: onFinish), presentationStyle: .overFullScreen)
+
+            guard let topVC = await UIUtils.topMostController() else { return }
+
+            await UIUtils.presentView(viewController: WebViewController(url: urlPlugin.getPluginURL(), onFinish: onFinish, presenter: topVC), presentationStyle: .overFullScreen)
         }
     }
 
