@@ -8,8 +8,11 @@ public struct CustomTheme: Codable {
     public var iconColor: String?
     public var successColor: String?
     public var errorColor: String?
+    public var fontFamily: String?
+    public var wideMobileButtons: Bool?
+    public var alignContentStart: Bool?
     
-    public init(primaryColor: String? = nil, backgroundColor: String? = nil, textColor: String? = nil, borderRadius: String? = nil, iconColor: String? = nil, successColor: String? = nil, errorColor: String? = nil) {
+    public init(primaryColor: String? = nil, backgroundColor: String? = nil, textColor: String? = nil, borderRadius: String? = nil, iconColor: String? = nil, successColor: String? = nil, errorColor: String? = nil, fontFamily: String? = nil, wideMobileButtons: Bool? = nil, alignContentStart: Bool? = nil) {
         self.primaryColor = primaryColor
         self.backgroundColor = backgroundColor
         self.textColor = textColor
@@ -17,26 +20,31 @@ public struct CustomTheme: Codable {
         self.iconColor = iconColor
         self.successColor = successColor
         self.errorColor = errorColor
+        self.fontFamily = fontFamily
+        self.wideMobileButtons = wideMobileButtons
+        self.alignContentStart = alignContentStart
     }
 }
 
 public struct ComponentOverride: Codable {
-    public var primaryButton: ButtonState?
-    public var exitButton: ButtonState?
-    public var pictureButton: ButtonState?
-    public var selectorButton: SelectorButtonState?
-    public var header: HeaderState?
-    public var helpBanner: HelpBannerState?
-    public var phoneInput: PhoneInputState?
+    public var PrimaryButton: ButtonState?
+    public var ExitButton: ButtonState?
+    public var PictureButton: ButtonState?
+    public var SelectorButton: SelectorButtonState?
+    public var Header: HeaderState?
+    public var HelpBanner: HelpBannerState?
+    public var PhoneInput: PhoneInputState?
+    public var PreviousButton: ButtonState?
     
-    public init(primaryButton: ButtonState? = nil, exitButton: ButtonState? = nil, pictureButton: ButtonState? = nil, selectorButton: SelectorButtonState? = nil, header: HeaderState? = nil, helpBanner: HelpBannerState? = nil, phoneInput: PhoneInputState? = nil) {
-        self.primaryButton = primaryButton
-        self.exitButton = exitButton
-        self.pictureButton = pictureButton
-        self.selectorButton = selectorButton
-        self.header = header
-        self.helpBanner = helpBanner
-        self.phoneInput = phoneInput
+    public init(PrimaryButton: ButtonState? = nil, ExitButton: ButtonState? = nil, PictureButton: ButtonState? = nil, SelectorButton: SelectorButtonState? = nil, Header: HeaderState? = nil, HelpBanner: HelpBannerState? = nil, PhoneInput: PhoneInputState? = nil, PreviousButton: ButtonState? = nil) {
+        self.PrimaryButton = PrimaryButton
+        self.ExitButton = ExitButton
+        self.PictureButton = PictureButton
+        self.SelectorButton = SelectorButton
+        self.Header = Header
+        self.HelpBanner = HelpBanner
+        self.PhoneInput = PhoneInput
+        self.PreviousButton = PreviousButton
     }
 }
 
