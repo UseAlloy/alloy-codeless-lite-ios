@@ -11,8 +11,9 @@ public struct CustomTheme: Codable {
     public var fontFamily: String?
     public var wideMobileButtons: Bool?
     public var alignContentStart: Bool?
+    public var hidePreviousButtonIcon: Bool?
     
-    public init(primaryColor: String? = nil, backgroundColor: String? = nil, textColor: String? = nil, borderRadius: String? = nil, iconColor: String? = nil, successColor: String? = nil, errorColor: String? = nil, fontFamily: String? = nil, wideMobileButtons: Bool? = nil, alignContentStart: Bool? = nil) {
+    public init(primaryColor: String? = nil, backgroundColor: String? = nil, textColor: String? = nil, borderRadius: String? = nil, iconColor: String? = nil, successColor: String? = nil, errorColor: String? = nil, fontFamily: String? = nil, wideMobileButtons: Bool? = nil, alignContentStart: Bool? = nil, hidePreviousButtonIcon: Bool? = nil) {
         self.primaryColor = primaryColor
         self.backgroundColor = backgroundColor
         self.textColor = textColor
@@ -23,6 +24,7 @@ public struct CustomTheme: Codable {
         self.fontFamily = fontFamily
         self.wideMobileButtons = wideMobileButtons
         self.alignContentStart = alignContentStart
+        self.hidePreviousButtonIcon = hidePreviousButtonIcon
     }
 }
 
